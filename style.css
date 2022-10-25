@@ -1,0 +1,353 @@
+ /*Variables*/
+ :root {
+    --Almost-White: hsl(0, 0%, 98%);
+    --Medium-Gray: hsl(0, 0%, 41%);
+    --Almost-Black: hsl(0, 0%, 8%);
+  }
+  
+/*Resets*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+button {
+    all: reset;
+}
+
+body {
+    margin: 20px;
+    font-family: 'Epilogue', 'sans-serif';
+    font-size: 18px;
+    color: var(--Medium-Gray);
+    background-color: var(--Almost-White);
+    }
+    
+
+/*Header*/
+
+header {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    align-items: center;
+    display: flex;
+    width: 17%;
+}
+.navbar {
+    width: 100%;
+}
+.toggle-menu {
+    display: none;
+    }
+.menu {
+    display: flex;
+}
+.nav-menu {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+header a, li {
+    list-style: none;
+    text-decoration: none;
+    color: var(--Medium-Gray);
+    font-weight: bold;
+}
+.btn:hover, .dropbtn:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+}
+.dropbtn {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+    color: var(--Medium-Gray);
+    font-family: 'Epilogue';
+    font-size: 18px;
+    font-weight: bold;
+    }
+.dropbtn img {
+    margin-left: 5px;
+    }
+.login {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    justify-content: flex-end;
+    align-items: center;
+    }
+.login button {
+    color: var(--Medium-Gray);
+    font-weight: bold;
+    font-size: 16px;
+
+}
+.btn-login:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--Almost-Black);
+    }
+.btn-login {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+.button {
+    padding: 15px 20px;
+    background-color: transparent;
+    border: var(--Medium-Gray) 1px solid;
+    border-radius: 10px;
+    }
+.login .button:hover {
+    color: var(--Almost-Black);
+    border: var(--Almost-Black) solid 2px;
+    font-weight: bold;
+    cursor: pointer;
+    }
+    
+
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    padding: 20px 0;
+}
+.dropdown-content {
+    display: none;
+    filter: invert(0);
+    position: absolute;
+    top: 3rem;
+    padding: 15px;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: var(--Almost-White);
+}
+
+#arrow1, #arrow2 {
+    transform: rotate(0deg);
+    filter: invert(0);
+}
+.dropfeat {
+    width: 160px;
+    left: -4rem;
+    text-indent: 10px;
+}
+.dropcom {
+    width: 120px;
+    left: -1rem;
+    text-indent: 5px;
+}
+.dropdown-content li a {
+    color: var(--Medium-Gray);
+    padding: 10px 0;
+    margin-left: 10px;
+    font-size: 15px;
+    /* display: block; */
+}
+.list { 
+    margin-bottom: 10px;
+}
+.dropdown-content img {
+    padding-right: 10px;
+    transform: translateY(2px);
+    }
+.dropdown-content a:hover {
+    color: var(--Almost-Black);
+    }
+
+
+
+/*Body*/
+main {
+    position: relative;
+}
+img {
+    object-fit: contain;
+    }
+.container {
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    height: 100%;
+    gap: 70px;
+    }
+.grid {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: flex-end;
+    }
+.image-hero {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    }
+.image-mobile {
+    display: none;
+    }
+h1 {
+    font-size: 70px;
+    padding-right: 10px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: var(--Almost-Black);
+    }
+.text {
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 0;
+    line-height: 25px;
+    }
+main .button {
+    color: var(--Almost-White);
+    background-color: var(--Almost-Black);
+    width: 150px;
+    }
+.grid button:hover {
+    cursor: pointer;
+    background-color: var(--Almost-White);
+    color: var(--Almost-Black);
+    border: solid 1px var(--Almost-Black);
+    }
+.client {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+    }
+
+ @media all and (max-width: 980px) {
+    h1 {
+        font-size: 60px;
+    }
+    }
+
+@media all and (max-width: 840px) {
+    /*nav menu responsive*/
+    header {
+        align-items: flex-start;
+    }
+    .menu {
+        position: absolute;
+        background-color: brown;
+        margin-left: -100%;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        transform: translateX(100%);
+        z-index: 1;
+        padding: 15px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        transition: 0.4s ease all;
+    }
+    .navbar {
+        width: 0;
+    }
+    .open-nav {
+        transform: translateX(0%);
+        width: 30%;
+    }
+    .dropdown {
+        padding: 0;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 0;
+    }
+    .login {
+        padding: 20px;
+        margin-top: 2rem;
+    }
+    .login button {
+        width: 100%;
+        border-radius: 15px;
+    }
+    nav ul, .login {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /*toggle*/
+    .toggle-menu {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+    }
+    .open {
+        display: block;
+    }
+    .close {
+        display: none;
+    }
+    .open-nav .open {
+        display: none;
+    }
+    .open-nav .close {
+        display: block;
+    }
+
+    /*Hover effect on navbar*/
+    .hover {
+        transition: all .4s ease-in-out;
+    }
+    .hover:hover {
+        padding-left: 2rem;
+        letter-spacing: 2px;
+    }
+
+    /*body responsive*/
+    .container {
+        display: flex;
+        
+        margin-top: 30px;
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+    .grid{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 40px;
+    }
+    .grid > * {
+        margin: 0;
+    }
+    .image-hero {
+        display: none;
+    }
+    .image-mobile {
+        display: block;
+    }
+    .grid button {
+        margin: auto;
+    }
+
+    }
+
+/*Attribution*/
+.attribution {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 20px;
+    }
+.attribution a {
+    color: var(--Almost-Black);
+    font-weight: bold;
+    text-decoration: none;
+    }

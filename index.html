@@ -3,395 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
-  <style>
-    /*Variables*/
-    :root {
-      --Almost-White: hsl(0, 0%, 98%);
-      --Medium-Gray: hsl(0, 0%, 41%);
-      --Almost-Black: hsl(0, 0%, 8%);
-    }
-    /*Resets*/
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 20px;
-      font-family: 'Epilogue', 'sans-serif';
-      font-size: 18px;
-      color: var(--Medium-Gray);
-      background-color: var(--Almost-White);
-    }
-    
-
-    /*Header*/
-    header {
-      display: flex;
-      align-items: center;
-    }
-    .logo {
-      align-items: center;
-      display: flex;
-      width: 17%;
-    }
-    .navbar {
-      display: flex;
-      width: 100%;
-      justify-content: space-around;
-      align-items: center;
-    }
-    #menu {
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-    }
-    header a, li {
-      list-style: none;
-      text-decoration: none;
-      color: var(--Medium-Gray);
-      font-weight: bold;
-    }
-    .btn:hover, .dropbtn:hover {
-      cursor: pointer;
-      color: var(--Almost-Black);
-    }
-    .dropbtn {
-      background: transparent;
-      display: flex;
-      align-items: center;
-      border: none;
-      color: var(--Medium-Gray);
-      font-family: 'Epilogue';
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .dropbtn img {
-      margin-left: 5px;
-    }
-    .login {
-      display: flex;
-      width: 100%;
-      gap: 40px;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    .login p:hover {
-      cursor: pointer;
-      font-weight: bold;
-      color: var(--Almost-Black);
-    }
-    .button {
-      padding: 15px 20px;
-      background-color: transparent;
-      border: var(--Medium-Gray) 1px solid;
-      color: var(--Medium-Gray);
-      font-weight: bold;
-      border-radius: 10px;
-    }
-    .login button:hover {
-      color: var(--Almost-Black);
-      border: var(--Almost-Black) solid 2px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    
-    .burger {
-      display: none;
-    }
-    
-
-    .dropdown {
-      display: inline-block;
-      position: relative;
-      padding: 20px 0;
-    }
-    .dropdown-content {
-      display: none;
-      filter: invert(0);
-      position: absolute;
-      top: 3rem;
-      padding: 15px;
-      z-index: 1;
-      border-radius: 10px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      background-color: var(--Almost-White);
-    }
-    .dropdown.active .dropdown-content {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(0px);
-    }
-    #arrow1, #arrow2 {
-      transform: rotate(0deg);
-      filter: invert(0);
-    }
-    .dropfeat {
-      width: 160px;
-      left: -5rem;
-    }
-    .dropcom {
-      width: 120px;
-      text-indent: 5px;
-    }
-    .dropdown-content a {
-      color: var(--Medium-Gray);
-      padding: 10px 0;
-      margin-left: 10px;
-      font-size: 15px;
-      /* display: block; */
-    }
-    .dropdown-content img {
-      padding-right: 10px;
-      transform: translateY(2px);
-    }
-    .dropdown-content a:hover {
-      color: var(--Almost-Black);
-    }
-    /* .dropdown:hover .dropdown-content {
-      display: block;
-    } */
-
-    
-
-    /*Body*/
-    section {
-      width: 100%;
-    }
-    img {
-      object-fit: contain;
-    }
-    .container {
-      display: flex;
-      padding: 20px;
-      justify-content: space-evenly;
-      height: 100%;
-      gap: 70px;
-    }
-    .grid {
-      display: flex;
-      flex-direction: column;
-      width: 40%;
-      justify-content: flex-end;
-    }
-    .image-hero {
-      display: flex;
-      justify-content: center;
-      height: 500px;
-    }
-    .image-mobile {
-      display: none;
-    }
-    h1 {
-      font-size: 70px;
-      padding-right: 10px;
-      margin-top: 0;
-      margin-bottom: 30px;
-      color: var(--Almost-Black);
-    }
-    .text {
-      font-weight: bold;
-      margin-bottom: 30px;
-      margin-top: 0;
-      line-height: 25px;
-    }
-    section button {
-      color: var(--Almost-White);
-      background-color: var(--Almost-Black);
-      width: 150px;
-    }
-    .grid button:hover {
-      cursor: pointer;
-      background-color: var(--Almost-White);
-      color: var(--Almost-Black);
-      border: solid 1px var(--Almost-Black);
-    }
-    .client {
-      margin-top: 90px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    @media all and (max-width: 980px) {
-      h1 {
-        font-size: 60px;
-      }
-    }
-
-    @media all and (max-width: 840px) {
-      /*nav menu responsive*/
-      .navbar {
-        position: absolute;
-        background-color: brown;
-        margin-left: -100%;
-        top: 0px;
-        right: 0px;
-        height: 100%;
-        width: 0;
-        z-index: 1;
-        padding: 15px;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        transition: width .1s;
-      }
-      .open-nav {
-        width: 30%;
-      }
-      .dropdown {
-        padding: 0;
-      }
-      #menu {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-        width: 100%;
-        padding-top: 20px;
-        padding-left: 0;
-      }
-      .login {
-        padding: 20px;
-        margin-top: 2rem;
-      }
-      .login button {
-        width: 100%;
-        border-radius: 15px;
-      }
-      nav ul, .login {
-        display: flex;
-        flex-direction: column;
-      }
-      /*toggle*/
-      .burger {
-        display: flex;
-        width: 100%;
-        justify-content: flex-end;
-        cursor: pointer;
-      }
-      .open {
-        display: flex;
-      }
-      .close {
-        display: none;
-      }
-      .open-nav .open {
-        display: none;
-      }
-      .open-nav .close {
-        display: flex;
-      }
-
-      /*Hover effect on navbar*/
-      .hover {
-        transition: all .4s ease-in-out;
-      }
-      .hover:hover {
-        padding-left: 2rem;
-        letter-spacing: 2px;
-      }
-
-      /*body responsive*/
-      .container {
-        display: flex;
-        
-        margin-top: 30px;
-        flex-direction: column;
-        padding: 0;
-        width: 100%;
-      }
-      .grid{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        gap: 40px;
-      }
-      .grid > * {
-        margin: 0;
-      }
-      .image-hero {
-        display: none;
-      }
-      .image-mobile {
-        display: block;
-      }
-      .grid button {
-        margin: auto;
-      }
-
-    }
-
-    /*Attribution*/
-    .attribution {
-      text-align: center;
-      font-size: 15px;
-    }
-    .attribution a {
-      color: var(--Almost-Black);
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-  </style>
 </head>
 <body>
   <header>
     <div class="logo"><img src="images/logo.svg" alt="logo"></div>
     
-      <nav class="navbar open-nav">
-        <div class="burger" role="button" aria-pressed="false" aria-expanded="true">
+      <nav class="navbar">
+
+        <div class="toggle-menu" role="button" aria-pressed="false" aria-expanded="true">
           <img src="images/icon-menu.svg" class="open" alt="icon-menu-open">
           <img src="images/icon-close-menu.svg" class="close" alt="icon-menu-close">
         </div>
         
-        <div id="menu">
-          <div class="dropdown active">
-            <button class="dropbtn hover">Features<img src="images/icon-arrow-down.svg" alt="icon-arrow-down" id="arrow1" aria-hidden="true">
-            </button>
-            <ul class="dropdown-content dropfeat" role="menu">
-              <li><img src="images/icon-todo.svg" alt="icon-todo">
-                  <a href="#">Todo List</a>
-              </li>
-              <li><img src="images/icon-calendar.svg" alt="icon-todo">
-                <a href="#">Calendar</a>
-              </li>
-              <li><img src="images/icon-reminders.svg" alt="icon-todo">
-                  <a href="#">Reminders</a>
-              </li>
-              <li><img src="images/icon-planning.svg" alt="icon-todo">
-                  <a href="#">Planning</a>
-              </li>
-            </ul>
+        <div class="menu open-nav">
+          <div class="nav-menu ">
+            <div class="dropdown dropdown1 active ">
+              <button class="dropbtn hover">Features<img src="images/icon-arrow-down.svg" alt="icon-arrow-down" id="arrow1" aria-hidden="true">
+              </button>
+              <ul class="dropdown-content dropfeat" role="menu">
+                <li class="list"><img src="images/icon-todo.svg" alt="icon-todo">
+                    <a href="#">Todo List</a>
+                </li>
+                <li class="list"><img src="images/icon-calendar.svg" alt="icon-todo">
+                  <a href="#">Calendar</a>
+                </li>
+                <li class="list"><img src="images/icon-reminders.svg" alt="icon-todo">
+                    <a href="#">Reminders</a>
+                </li>
+                <li><img src="images/icon-planning.svg" alt="icon-todo">
+                    <a href="#">Planning</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dropdown dropdown2">
+              <button class="dropbtn hover">Company<img src="images/icon-arrow-down.svg" alt="icon-arrow-down" id="arrow2" aria-hidden="true">
+              </button>
+              <ul class="dropdown-content dropcom">
+                <li class="list"><a href="#">History</a></li>
+                <li class="list"><a href="#">Our team</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+            <div class="hover"><a href="#" class="btn">Careers</a></div>
+            <div class="hover"><a href="#" class="btn">About</a></div>
           </div>
 
-          <div class="dropdown">
-            <button class="dropbtn hover">Company<img src="images/icon-arrow-down.svg" alt="icon-arrow-down" id="arrow2" aria-hidden="true">
-            </button>
-            <ul class="dropdown-content dropcom">
-              <li><a href="#" >History</a></li>
-              <li><a href="#" >Our team</a></li>
-              <li><a href="#" >Blog</a></li>
-            </ul>
+          <div class="login">
+            <button class="btn-login">Login</button>
+            <button class="button">Register</button>
           </div>
-          <div class="hover"><a href="#" class="btn">Careers</a></div>
-          <div class="hover"><a href="#" class="btn">About</a></div>
+
         </div>
 
-        <div class="login">
-          <p>Login</p>
-          <button class="button">Register</button>
-        </div>
+        
     </nav>
   </header>
 
-  <section>
+  <main>
     <div class="container">
         <div class="grid">
           <img src="images/image-hero-mobile.png" class="image-mobile" alt="remote work">
@@ -410,7 +85,7 @@
         <div class="image-hero"><img src="images/image-hero-desktop.png" max-width="400px" height="500px" alt="remote work"></div>
       </div>
     </div>
-  </section>
+  </main>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor</a>. 
@@ -420,29 +95,25 @@
   <script>
 
     function toggleMenu () {  
-      const navbar = document.querySelector('.navbar');
-      const burger = document.querySelector('.burger');
+      const menu = document.querySelector('.menu');
+      const toggle = document.querySelector('.toggle-menu');
       
       
-      burger.addEventListener('click', (e) => {    
-        navbar.classList.toggle('open-nav');
+      toggle.addEventListener('click', (e) => {    
+        menu.classList.toggle('open-nav');
       });   
     }
     toggleMenu()
-    hamburgerBtn.addEventListener("click", () => {
-      hamburgerBtn.classList.toggle("active")
-      mobileNav.classList.toggle("active")
-      background.classList.toggle("active")
-      });
+    
 
 
 
 
 
-    var drop = document.querySelectorAll(".dropdown")
+    var drop1 = document.querySelectorAll(".dropdown1")
     var arrow1 = document.getElementById("arrow1")
 
-    drop.forEach(element => {
+    drop1.forEach(element => {
         element.children[0].addEventListener('click', () => {
             var rotate = ["none", "block"]
             var rotateArrow = ["rotate(180deg)", "rotate(0deg)"]
@@ -474,10 +145,10 @@
       })
 
       
-    
+    var drop2 = document.querySelectorAll(".dropdown2")
     var arrow2 = document.getElementById("arrow2")
 
-    drop.forEach(element => {
+    drop2.forEach(element => {
         element.children[0].addEventListener('click', () => {
             var rotate = ["none", "block"]
             var rotateArrow = ["rotate(180deg)", "rotate(0deg)"]
