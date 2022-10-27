@@ -11,9 +11,6 @@
     padding: 0;
     box-sizing: border-box;
     }
-button {
-    all: reset;
-}
 
 body {
     margin: 20px;
@@ -21,7 +18,7 @@ body {
     font-size: 18px;
     color: var(--Medium-Gray);
     background-color: var(--Almost-White);
-    }
+}
     
 
 /*Header*/
@@ -68,10 +65,57 @@ header a, li {
     font-family: 'Epilogue';
     font-size: 18px;
     font-weight: bold;
-    }
+}
 .dropbtn img {
     margin-left: 5px;
+}
+.dropdown {
+        display: inline-block;
+        position: relative;
+        padding: 20px 0;
+}
+.dropdown-content {
+        display: none;
+        filter: invert(0);
+        position: absolute;
+        top: 3rem;
+        padding: 15px;
+        z-index: 1;
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        background-color: var(--Almost-White);
     }
+#arrow1, #arrow2 {
+        transform: rotate(0deg);
+        filter: invert(0);
+    }
+.dropfeat {
+        width: 160px;
+        left: -4rem;
+        text-indent: 10px;
+    }
+.dropcom {
+        width: 120px;
+        left: -1rem;
+        text-indent: 5px;
+}
+.dropdown-content li a {
+        color: var(--Medium-Gray);
+        padding: 10px 0;
+        margin-left: 10px;
+        font-size: 15px;
+}
+.list { 
+        margin-bottom: 10px;
+}
+.dropdown-content img {
+        padding-right: 10px;
+        transform: translateY(2px);
+    }
+.dropdown-content a:hover {
+        color: var(--Almost-Black);
+        }
+
 .login {
     display: flex;
     width: 100%;
@@ -83,7 +127,7 @@ header a, li {
     color: var(--Medium-Gray);
     font-weight: bold;
     font-size: 16px;
-
+    border-width: 2px;
 }
 .btn-login:hover {
     cursor: pointer;
@@ -107,57 +151,6 @@ header a, li {
     font-weight: bold;
     cursor: pointer;
     }
-    
-
-
-.dropdown {
-    display: inline-block;
-    position: relative;
-    padding: 20px 0;
-}
-.dropdown-content {
-    display: none;
-    filter: invert(0);
-    position: absolute;
-    top: 3rem;
-    padding: 15px;
-    z-index: 1;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    background-color: var(--Almost-White);
-}
-
-#arrow1, #arrow2 {
-    transform: rotate(0deg);
-    filter: invert(0);
-}
-.dropfeat {
-    width: 160px;
-    left: -4rem;
-    text-indent: 10px;
-}
-.dropcom {
-    width: 120px;
-    left: -1rem;
-    text-indent: 5px;
-}
-.dropdown-content li a {
-    color: var(--Medium-Gray);
-    padding: 10px 0;
-    margin-left: 10px;
-    font-size: 15px;
-}
-.list { 
-    margin-bottom: 10px;
-}
-.dropdown-content img {
-    padding-right: 10px;
-    transform: translateY(2px);
-    }
-.dropdown-content a:hover {
-    color: var(--Almost-Black);
-    }
-
 
 
 /*Body*/
@@ -174,7 +167,7 @@ img {
     height: 100%;
     gap: 70px;
     }
-.grid {
+.content {
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -206,7 +199,7 @@ main .button {
     background-color: var(--Almost-Black);
     width: 150px;
     }
-.grid button:hover {
+.content button:hover {
     cursor: pointer;
     background-color: var(--Almost-White);
     color: var(--Almost-Black);
@@ -232,43 +225,37 @@ main .button {
     }
     .menu {
         position: absolute;
-        background-color: var(--Almost-White);
-        margin-left: -100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: 0.4s ease all;
+        background: var(--Almost-White);
+        padding: 30px;
         top: 0px;
         right: 0px;
         height: 100%;
-        transform: translateX(100%);
         z-index: 1;
-        padding: 15px;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        transition: 0.4s ease all;
+        opacity: 0;
     }
+    
     .navbar {
         width: 0;
     }
     .open-nav {
-        transform: translateX(0%);
         width: 50%;
+        opacity: 1;
     }
     .dropdown {
         padding: 0;
     }
-    .menu {
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-
-    }
     .nav-menu {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        width: 100%;
         align-items: flex-start;
+        gap: 2rem;
+        margin-top: 2rem;
+        width: 100%;
         padding-top: 20px;
-        padding-left: 0;
     }
     .dropdown-content {
         position: sticky;
@@ -293,7 +280,6 @@ main .button {
     /*toggle*/
     .toggle-menu {
         display: block;
-        width: 100%;
         cursor: pointer;
         position: absolute;
         transform: translateX(-30px);
@@ -330,14 +316,14 @@ main .button {
         padding: 0;
         width: 100%;
     }
-    .grid{
+    .content{
         width: 100%;
         display: flex;
         justify-content: center;
         text-align: center;
         gap: 40px;
     }
-    .grid > * {
+    .content > * {
         margin: 0;
     }
     .image-hero {
@@ -346,7 +332,7 @@ main .button {
     .image-mobile {
         display: block;
     }
-    .grid button {
+    .content button {
         margin: auto;
     }
 
