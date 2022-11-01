@@ -14,7 +14,7 @@
     <div class="logo"><img src="images/logo.svg" alt="logo"></div>
       <nav class="navbar">
         <div class="toggle-menu" role="button">
-          <img src="images/icon-menu.svg" class="open" alt="icon-menu-open">
+          <img src="images/icon-menu.svg" class="open" id="imgMenu" alt="icon-menu-open">
           <img src="images/icon-close-menu.svg" class="close" alt="icon-menu-close">
         </div>
         <div class="menu open-nav">
@@ -59,6 +59,7 @@
         </div>
     </nav>
   </header>
+  <div class="menu-layout show"></div>
 
   <main>
     <div class="container">
@@ -88,19 +89,26 @@
 
   <script>
 
-    function toggleMenu () {  
+    const imgMenu = document.getElementById("imgMenu")
+
+    function toggleMenu() {
       const menu = document.querySelector('.menu');
       const toggle = document.querySelector('.toggle-menu');
-      
-      
-      toggle.addEventListener('click', () => {    
+
+
+      toggle.addEventListener('click', () => {
         menu.classList.toggle('open-nav');
-      });   
+            if (menu.classList.contains('open-nav')) {
+              imgMenu.setAttribute("src", "images/icon-close-menu.svg")
+            } else {
+              imgMenu.setAttribute("src", "images/icon-menu.svg")
+          }
+      });
     }
     toggleMenu()
     
-
-
+    
+    
 
     var drop1 = document.querySelectorAll(".dropdown1")
     var arrow1 = document.getElementById("arrow1")
